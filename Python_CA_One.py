@@ -109,6 +109,20 @@ class EmployeeTest(unittest.TestCase): #creating a Employeetest class for unit t
         pi2= e2.computePayment(48,'12/11/2021')
         self.assertGreater(pi2['Overtime Pay'],1)
 
+    #Create three functions for testing Regular Hours Worked cannot exceed hours worked
+    def testRegHourExceed(self):
+        e = Employee(123456, 'Green', 'Joe', 37, 16, 1.5, 70, 700)
+        pi = e.computePayment(30, '31/10/2021')
+        self.assertLessEqual(pi['Regular Hours Worked'], 30)
+    def testRegHourExceeda(self):
+        e1 = Employee(1234458, 'Shane', 'John', 39, 12, 2.6, 50, 825) 
+        pi1= e1.computePayment(23,'12/11/2021')
+        self.assertLessEqual(pi1['Regular Hours Worked'], 23)
+    def testRegHourExceedb(self):
+        e2 = Employee(923696, 'Landon', 'Steve', 39, 12, 0.5, 60, 955) 
+        pi2= e2.computePayment(48,'12/11/2021')
+        self.assertLessEqual(pi2['Regular Hours Worked'], 48)
+
  #Running the tests below line
 
 if __name__ == "__main__":
