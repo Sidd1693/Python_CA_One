@@ -135,7 +135,21 @@ class EmployeeTest(unittest.TestCase): #creating a Employeetest class for unit t
     def testHighTaxNotNegb(self):
         e2 = Employee(923696, 'Landon', 'Steve', 39, 12, 0.5, 60, 955) 
         pi2= e2.computePayment(48,'12/11/2021')
-        self.assertGreater(pi2['Higher Tax'],1) 
+        self.assertGreater(pi2['Higher Tax'],1)
+
+    #Create function testNetPayNotNeg for tetsing Net Pay is not negative
+    def testNetPayNotNeg(self):
+        e = Employee(123456, 'Green', 'Joe', 37, 16, 1.5, 70, 700)
+        pi = e.computePayment(0, '31/10/2021')
+        self.assertGreater(pi['Net Pay'],1)
+    def testNetPayNotNega(self):
+        e1 = Employee(1234458, 'Shane', 'John', 39, 12, 2.6, 50, 825) 
+        pi1= e1.computePayment(23,'12/11/2021')
+        self.assertGreater(pi1['Net Pay'],1)
+    def testNetPayNotNegb(self):
+        e2 = Employee(923696, 'Landon', 'Steve', 39, 12, 0.5, 60, 955) 
+        pi2= e2.computePayment(48,'12/11/2021')
+        self.assertGreater(pi2['Net Pay'],1)
 
  #Running the tests below line
 
