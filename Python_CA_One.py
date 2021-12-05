@@ -14,6 +14,7 @@ class Employee:
         self.TaxCredit = int(TaxCredit)
         self.StandardBand = int(StandardBand)
 
+        # Setting Conditions for the required calculations
     def computePayment(self, hours, date):
         OTRate = float(self.HourlyRate * self.OTMultiple)
         OT = 0
@@ -39,6 +40,8 @@ class Employee:
         NetDeduction = TotalTax - self.TaxCredit
         NetPay = GrossPay - NetDeduction
 
+
+        # Setting Calculated values to their respective strings
         return {
             'name': self.FirstName+' ' + self.LastName,
             'Date': date,
@@ -59,6 +62,7 @@ class Employee:
             'Net Pay': round(NetPay, 2)
         }
 
+       # Creating Function to get data from Employees.txt and Hour.txt
 def computeAllPayment(empFileName, HoursFileName):
     finalResult = []
     with open(empFileName, 'r') as fobj:
@@ -74,7 +78,7 @@ def computeAllPayment(empFileName, HoursFileName):
                         finalResult.append(pay)
     print(finalResult)
 
-
+     #Creating main function
 def main():
     computeAllPayment(r"C:\Users\sidds\OneDrive\Desktop\Python_CA_One\Employees.txt", r"C:\Users\sidds\OneDrive\Desktop\Python_CA_One\Hours.txt")
 
